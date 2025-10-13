@@ -599,7 +599,7 @@ class NotificationManager {
       : '';
 
     const linkButtonHtml = notification.linkButton
-      ? `<button class="notifio-link-button" onclick="${notification.linkButton.onClick || 'void(0)'}">
+      ? `<button class="notifio-link-button" data-link-button="true">
            ${notification.linkButton.text || 'Link Button'}
          </button>`
       : '';
@@ -623,6 +623,17 @@ class NotificationManager {
         closeBtn.addEventListener('click', (e) => {
           e.stopPropagation();
           this.close(notification.id);
+        });
+      }
+    }
+
+    // Add link button event listener
+    if (notification.linkButton && notification.linkButton.onClick) {
+      const linkBtn = element.querySelector('.notifio-link-button');
+      if (linkBtn) {
+        linkBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          notification.linkButton.onClick();
         });
       }
     }
