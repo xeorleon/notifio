@@ -32,10 +32,10 @@ npm install notifio
     <button onclick="showNotification()">Show Notification</button>
     
     <!-- Unpkg CDN -->
-    <script src="https://unpkg.com/notifio@1.0.1/dist/notifio.umd.js"></script>
+    <script src="https://unpkg.com/notifio@1.0.3/dist/notifio.umd.js"></script>
     
     <!-- Or JSDelivr CDN -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.1/dist/notifio.umd.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.3/dist/notifio.umd.js"></script> -->
     
     <script>
         function showNotification() {
@@ -59,7 +59,7 @@ npm install notifio
 
 ```html
 <script type="module">
-  import { notifio } from 'https://unpkg.com/notifio@1.0.1/dist/index.esm.js';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.3/dist/index.esm.js';
 
   // Show notifications
   notifio.success('Operation completed!');
@@ -349,22 +349,22 @@ npm run type-check
 ### Unpkg
 ```html
 <!-- UMD Bundle -->
-<script src="https://unpkg.com/notifio@1.0.1/dist/notifio.umd.js"></script>
+<script src="https://unpkg.com/notifio@1.0.3/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://unpkg.com/notifio@1.0.1/dist/index.esm.js';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.3/dist/index.esm.js';
 </script>
 ```
 
 ### JSDelivr
 ```html
 <!-- UMD Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.1/dist/notifio.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.3/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.1/dist/index.esm.js';
+  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.3/dist/index.esm.js';
 </script>
 ```
 
