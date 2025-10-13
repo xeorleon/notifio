@@ -1,0 +1,60 @@
+{
+  "name": "notifio",
+  "version": "1.0.0",
+  "description": "Universal notification system for Vue, React, and vanilla JavaScript",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    },
+    "./react": {
+      "import": "./dist/react/index.esm.js",
+      "require": "./dist/react/index.js"
+    },
+    "./vue": {
+      "import": "./dist/vue/index.esm.js",
+      "require": "./dist/vue/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-node-resolve": "^15.3.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "@types/vue": "^1.0.31",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rollup": "^4.52.4",
+    "rollup-plugin-dts": "^6.2.3",
+    "tslib": "^2.6.2",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.22"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs && npm run postbuild",
+    "postbuild": "mkdir -p dist/react dist/vue && cp src/react/* dist/react/ && cp src/vue/* dist/vue/",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "lint": "eslint src/**/*.{ts,js}",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "notification",
+    "toast",
+    "alert",
+    "vue",
+    "react",
+    "typescript",
+    "javascript"
+  ],
+  "author": "Notifio Team",
+  "license": "MIT"
+}

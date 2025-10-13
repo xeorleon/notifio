@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifio - React Demo</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8644C6 0%, #6B46C1 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #1F2937;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .section h3 {
+            color: #374151;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        .code-block {
+            background: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: #8644C6;
+            color: white;
+        }
+
+        .btn-success {
+            background: #049A53;
+            color: white;
+        }
+
+        .btn-warning {
+            background: #CC7E23;
+            color: white;
+        }
+
+        .btn-error {
+            background: #D64851;
+            color: white;
+        }
+
+        .btn-neutral {
+            background: #262E4D;
+            color: white;
+        }
+
+        .btn-light {
+            background: #F8FAFC;
+            color: #374151;
+            border: 1px solid #E5E7EB;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #8644C6;
+            border: 2px solid #8644C6;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #F3F4F6;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #049A53;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .api-table th,
+        .api-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .api-table th {
+            background: #F9FAFB;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .api-table code {
+            background: #F3F4F6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .position-demo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .position-demo .btn {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+
+        .footer {
+            background: #F9FAFB;
+            padding: 30px;
+            text-align: center;
+            color: #6B7280;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .footer a {
+            color: #8644C6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .react-badge {
+            display: inline-block;
+            background: #61DAFB;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .hook-demo {
+            background: #F0F9FF;
+            border: 1px solid #0EA5E9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .hook-demo h4 {
+            color: #0C4A6E;
+            margin-bottom: 10px;
+        }
+
+        .context-demo {
+            background: #F0FDF4;
+            border: 1px solid #22C55E;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .context-demo h4 {
+            color: #14532D;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useContext, createContext } = React;
+
+        // Mock Notifio for demo purposes
+        const NotifioContext = createContext();
+
+        const NotifioProvider = ({ children }) => {
+            const [notifications, setNotifications] = useState([]);
+
+            const addNotification = (notification) => {
+                const id = Date.now() + Math.random();
+                const newNotification = { ...notification, id };
+                setNotifications(prev => [...prev, newNotification]);
+                
+                if (notification.duration !== 0) {
+                    setTimeout(() => {
+                        removeNotification(id);
+                    }, notification.duration || 4000);
+                }
+                
+                return id;
+            };
+
+            const removeNotification = (id) => {
+                setNotifications(prev => prev.filter(n => n.id !== id));
+            };
+
+            const notifio = {
+                success: (message, options = {}) => addNotification({ type: 'success', message, ...options }),
+                error: (message, options = {}) => addNotification({ type: 'error', message, ...options }),
+                warning: (message, options = {}) => addNotification({ type: 'warning', message, ...options }),
+                info: (message, options = {}) => addNotification({ type: 'info', message, ...options }),
+                neutral: (message, options = {}) => addNotification({ type: 'neutral', message, ...options }),
+                solid: (type, message, options = {}) => addNotification({ type, message, style: 'solid', ...options }),
+                light: (type, message, options = {}) => addNotification({ type, message, style: 'light', ...options }),
+                outline: (type, message, options = {}) => addNotification({ type, message, style: 'outline', ...options }),
+            };
+
+            return (
+                <NotifioContext.Provider value={{ notifio, notifications, removeNotification }}>
+                    {children}
+                </NotifioContext.Provider>
+            );
+        };
+
+        const useNotifio = () => {
+            const context = useContext(NotifioContext);
+            if (!context) {
+                throw new Error('useNotifio must be used within a NotifioProvider');
+            }
+            return context.notifio;
+        };
+
+        const NotificationContainer = () => {
+            const { notifications, removeNotification } = useContext(NotifioContext);
+            
+            return (
+                <div style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 9999 }}>
+                    {notifications.map(notification => (
+                        <div
+                            key={notification.id}
+                            style={{
+                                background: notification.type === 'success' ? '#049A53' : 
+                                           notification.type === 'error' ? '#D64851' :
+                                           notification.type === 'warning' ? '#CC7E23' :
+                                           notification.type === 'info' ? '#8644C6' : '#262E4D',
+                                color: 'white',
+                                padding: '12px 16px',
+                                borderRadius: '6px',
+                                marginBottom: '8px',
+                                minWidth: '300px',
+                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                position: 'relative',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px'
+                            }}
+                        >
+                            <span style={{ fontSize: '16px' }}>
+                                {notification.type === 'success' ? '✓' :
+                                 notification.type === 'error' ? '✕' :
+                                 notification.type === 'warning' ? '⚠' :
+                                 notification.type === 'info' ? 'ℹ' : '●'}
+                            </span>
+                            <div style={{ flex: 1 }}>
+                                {notification.title && (
+                                    <div style={{ fontWeight: '600', marginBottom: '4px' }}>
+                                        {notification.title}
+                                    </div>
+                                )}
+                                <div>{notification.message}</div>
+                                {notification.description && (
+                                    <div style={{ fontSize: '12px', opacity: 0.9, marginTop: '4px' }}>
+                                        {notification.description}
+                                    </div>
+                                )}
+                            </div>
+                            <button
+                                onClick={() => removeNotification(notification.id)}
+                                style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                    padding: '4px',
+                                    opacity: 0.7
+                                }}
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            );
+        };
+
+        const App = () => {
+            const notifio = useNotifio();
+            const [count, setCount] = useState(0);
+
+            // Basic notification functions
+            const showBasicSuccess = () => {
+                notifio.success('Operation completed successfully!');
+            };
+
+            const showBasicError = () => {
+                notifio.error('Something went wrong!');
+            };
+
+            const showBasicWarning = () => {
+                notifio.warning('Please check your input');
+            };
+
+            const showBasicInfo = () => {
+                notifio.info('New feature available');
+            };
+
+            const showBasicNeutral = () => {
+                notifio.neutral('System maintenance scheduled');
+            };
+
+            // Style variant functions
+            const showSolidSuccess = () => {
+                notifio.solid('success', 'This is a solid success notification');
+            };
+
+            const showSolidError = () => {
+                notifio.solid('error', 'This is a solid error notification');
+            };
+
+            const showSolidWarning = () => {
+                notifio.solid('warning', 'This is a solid warning notification');
+            };
+
+            const showLightSuccess = () => {
+                notifio.light('success', 'This is a light success notification');
+            };
+
+            const showLightError = () => {
+                notifio.light('error', 'This is a light error notification');
+            };
+
+            const showLightWarning = () => {
+                notifio.light('warning', 'This is a light warning notification');
+            };
+
+            const showOutlineSuccess = () => {
+                notifio.outline('success', 'This is an outline success notification');
+            };
+
+            const showOutlineError = () => {
+                notifio.outline('error', 'This is an outline error notification');
+            };
+
+            const showOutlineWarning = () => {
+                notifio.outline('warning', 'This is an outline warning notification');
+            };
+
+            const showOutlineWithDescription = () => {
+                notifio.outline('info', 'Outline notification with description', {
+                    title: 'Outline Style',
+                    description: 'Bu notification outline style kullanıyor. Arkaplan beyaz, sadece border rengi var ve yükseklik içeriğe göre ayarlanıyor.',
+                    linkButton: {
+                        text: 'Detayları Gör',
+                        onClick: () => alert('Outline link tıklandı!')
+                    }
+                });
+            };
+
+            // Advanced options functions
+            const showWithTitle = () => {
+                notifio.success('Data saved successfully!', {
+                    title: 'Success',
+                    duration: 3000
+                });
+            };
+
+            const showWithDescription = () => {
+                notifio.info('New update available', {
+                    description: 'Version 2.0 includes new features and improvements.',
+                    duration: 5000
+                });
+            };
+
+            const showWithBoth = () => {
+                notifio.warning('Maintenance scheduled', {
+                    title: 'System Maintenance',
+                    description: 'The system will be unavailable from 2:00 AM to 4:00 AM EST.',
+                    duration: 6000
+                });
+            };
+
+            const showWithLink = () => {
+                notifio.info('Check out our new feature!', {
+                    title: 'New Feature',
+                    description: 'We\'ve added dark mode support.',
+                    linkButton: {
+                        text: 'Learn More',
+                        onClick: () => alert('Link clicked!')
+                    }
+                });
+            };
+
+            const showWithAction = () => {
+                notifio.success('File uploaded successfully!', {
+                    title: 'Upload Complete',
+                    description: 'Your file has been processed and is ready.',
+                    linkButton: {
+                        text: 'View File',
+                        onClick: () => alert('Opening file...')
+                    }
+                });
+            };
+
+            const showUnderlineLink = () => {
+                notifio.info('Alt çizgili link button örneği', {
+                    title: 'Link Button Demo',
+                    description: 'Bu link button alt çizgili ve icon\'lu olarak tasarlandı.',
+                    linkButton: {
+                        text: 'Detayları Gör',
+                        onClick: () => alert('Alt çizgili link tıklandı!')
+                    }
+                });
+            };
+
+            const showLongDuration = () => {
+                notifio.info('This notification will stay for 10 seconds', {
+                    duration: 10000
+                });
+            };
+
+            const showShortDuration = () => {
+                notifio.success('Quick notification!', {
+                    duration: 1500
+                });
+            };
+
+            const showTopLeft = () => {
+                notifio.info('Top left position', {
+                    position: 'top-left',
+                    duration: 3000
+                });
+            };
+
+            const showBottomRight = () => {
+                notifio.warning('Bottom right position', {
+                    position: 'bottom-right',
+                    duration: 3000
+                });
+            };
+
+            const showPosition = (position) => {
+                notifio.info(`Position: ${position}`, {
+                    position: position,
+                    duration: 3000
+                });
+            };
+
+            // React-specific functions
+            const showReactiveNotification = () => {
+                setCount(prev => prev + 1);
+                notifio.info(`Count is now: ${count + 1}`, {
+                    title: 'React State',
+                    description: 'Using React useState hook'
+                });
+            };
+
+            const showEffectNotification = () => {
+                notifio.success('This notification was triggered by useEffect!', {
+                    title: 'React Effect',
+                    description: 'Using React useEffect hook'
+                });
+            };
+
+            // Show welcome message on mount
+            useEffect(() => {
+                const timer = setTimeout(() => {
+                    notifio.success('Welcome to Notifio!', {
+                        title: 'React Demo Ready',
+                        description: 'Click the buttons above to test different notification types and styles.',
+                        duration: 5000
+                    });
+                }, 1000);
+
+                return () => clearTimeout(timer);
+            }, []);
+
+            return (
+                <div className="container">
+                    <div className="header">
+                        <h1>🚀 Notifio <span className="react-badge">React 18</span></h1>
+                        <p>Universal notification system for Vue, React & Vanilla JavaScript</p>
+                    </div>
+
+                    <div className="content">
+                        {/* Installation Section */}
+                        <div className="section">
+                            <h2>📦 Installation</h2>
+                            <div className="code-block">
+{`# NPM
+npm install notifio
+
+# Yarn
+yarn add notifio
+
+# PNPM
+pnpm add notifio`}
+                            </div>
+                        </div>
+
+                        {/* React Provider Setup Section */}
+                        <div className="section">
+                            <h2>🔧 React Provider Setup</h2>
+                            <h3>1. Wrap Your App</h3>
+                            <div className="code-block">
+{`// App.jsx
+import React from 'react'
+import { NotifioProvider } from 'notifio/react'
+import MyComponent from './MyComponent'
+
+function App() {
+  return (
+    <NotifioProvider>
+      <MyComponent />
+    </NotifioProvider>
+  )
+}
+
+export default App`}
+                            </div>
+
+                            <h3>2. Use in Components</h3>
+                            <div className="code-block">
+{`// MyComponent.jsx
+import React from 'react'
+import { useNotifio } from 'notifio/react'
+
+function MyComponent() {
+  const notifio = useNotifio()
+
+  const handleSuccess = () => {
+    notifio.success('Operation completed!')
+  }
+
+  return (
+    <button onClick={handleSuccess}>
+      Show Success
+    </button>
+  )
+}
+
+export default MyComponent`}
+                            </div>
+                        </div>
+
+                        {/* Basic Usage Section */}
+                        <div className="section">
+                            <h2>🚀 Basic Usage</h2>
+                            <h3>Simple Notifications</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-success" onClick={showBasicSuccess}>Success</button>
+                                <button className="btn btn-error" onClick={showBasicError}>Error</button>
+                                <button className="btn btn-warning" onClick={showBasicWarning}>Warning</button>
+                                <button className="btn btn-primary" onClick={showBasicInfo}>Info</button>
+                                <button className="btn btn-neutral" onClick={showBasicNeutral}>Neutral</button>
+                            </div>
+                            <div className="code-block">
+{`// Using the hook
+const notifio = useNotifio()
+
+// Basic notifications
+notifio.success('Operation completed successfully!')
+notifio.error('Something went wrong!')
+notifio.warning('Please check your input')
+notifio.info('New feature available')
+notifio.neutral('System maintenance scheduled')`}
+                            </div>
+                        </div>
+
+                        {/* Style Variants Section */}
+                        <div className="section">
+                            <h2>🎨 Style Variants</h2>
+                            <h3>Solid Style (Default)</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-success" onClick={showSolidSuccess}>Solid Success</button>
+                                <button className="btn btn-error" onClick={showSolidError}>Solid Error</button>
+                                <button className="btn btn-warning" onClick={showSolidWarning}>Solid Warning</button>
+                            </div>
+
+                            <h3>Light Style</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-light" onClick={showLightSuccess}>Light Success</button>
+                                <button className="btn btn-light" onClick={showLightError}>Light Error</button>
+                                <button className="btn btn-light" onClick={showLightWarning}>Light Warning</button>
+                            </div>
+
+                            <h3>Outline Style</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-outline" onClick={showOutlineSuccess}>Outline Success</button>
+                                <button className="btn btn-outline" onClick={showOutlineError}>Outline Error</button>
+                                <button className="btn btn-outline" onClick={showOutlineWarning}>Outline Warning</button>
+                                <button className="btn btn-outline" onClick={showOutlineWithDescription}>Outline + Description</button>
+                            </div>
+
+                            <div className="code-block">
+{`// Style variants
+notifio.solid('success', 'This is a solid success notification')
+notifio.light('error', 'This is a light error notification')
+notifio.outline('warning', 'This is an outline warning notification')
+
+// Or with options
+notifio.success('Message', { style: 'solid' })
+notifio.error('Message', { style: 'light' })
+notifio.warning('Message', { style: 'outline' })`}
+                            </div>
+                        </div>
+
+                        {/* Advanced Options Section */}
+                        <div className="section">
+                            <h2>⚙️ Advanced Options</h2>
+                            <h3>With Title & Description</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-primary" onClick={showWithTitle}>With Title</button>
+                                <button className="btn btn-success" onClick={showWithDescription}>With Description</button>
+                                <button className="btn btn-warning" onClick={showWithBoth}>Title + Description</button>
+                            </div>
+
+                            <h3>With Link Button</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-primary" onClick={showWithLink}>With Link</button>
+                                <button className="btn btn-success" onClick={showWithAction}>With Action</button>
+                                <button className="btn btn-warning" onClick={showUnderlineLink}>Alt Çizgili Link</button>
+                            </div>
+
+                            <h3>Custom Duration & Position</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-primary" onClick={showLongDuration}>Long Duration</button>
+                                <button className="btn btn-success" onClick={showShortDuration}>Short Duration</button>
+                                <button className="btn btn-warning" onClick={showTopLeft}>Top Left</button>
+                                <button className="btn btn-error" onClick={showBottomRight}>Bottom Right</button>
+                            </div>
+
+                            <div className="code-block">
+{`// Advanced options
+notifio.success('Success!', {
+  title: 'Operation Complete',
+  description: 'Your data has been saved successfully.',
+  duration: 5000,
+  position: 'top-right',
+  closable: true,
+  linkButton: {
+    text: 'View Details',
+    url: '#',
+    onClick: () => console.log('Link clicked!')
+  }
+})`}
+                            </div>
+                        </div>
+
+                        {/* React Hooks Section */}
+                        <div className="section">
+                            <h2>🎯 React Hooks Integration</h2>
+                            <div className="hook-demo">
+                                <h4>useNotifio Hook</h4>
+                                <p>The <code>useNotifio</code> hook provides access to all notification methods within React components.</p>
+                            </div>
+
+                            <h3>State Integration</h3>
+                            <div className="button-grid">
+                                <button className="btn btn-primary" onClick={showReactiveNotification}>State Demo (Count: {count})</button>
+                                <button className="btn btn-success" onClick={showEffectNotification}>Effect Demo</button>
+                            </div>
+
+                            <div className="code-block">
+{`// React hooks integration
+import React, { useState, useEffect } from 'react'
+import { useNotifio } from 'notifio/react'
+
+function MyComponent() {
+  const notifio = useNotifio()
+  const [count, setCount] = useState(0)
+
+  const handleClick = () => {
+    setCount(prev => prev + 1)
+    notifio.info(\`Count is now: \${count + 1}\`)
+  }
+
+  useEffect(() => {
+    notifio.success('Component mounted!')
+  }, [])
+
+  return (
+    <button onClick={handleClick}>
+      Count: {count}
+    </button>
+  )
+}`}
+                            </div>
+                        </div>
+
+                        {/* Context Provider Section */}
+                        <div className="section">
+                            <h2>🔗 Context Provider</h2>
+                            <div className="context-demo">
+                                <h4>NotifioProvider</h4>
+                                <p>The <code>NotifioProvider</code> provides notification context to all child components.</p>
+                            </div>
+
+                            <div className="code-block">
+{`// Provider with options
+import { NotifioProvider } from 'notifio/react'
+
+function App() {
+  return (
+    <NotifioProvider
+      position="top-right"
+      duration={4000}
+      closable={true}
+    >
+      <MyApp />
+    </NotifioProvider>
+  )
+}`}
+                            </div>
+                        </div>
+
+                        {/* Position Demo Section */}
+                        <div className="section">
+                            <h2>📍 Position Demo</h2>
+                            <div className="position-demo">
+                                <button className="btn btn-primary" onClick={() => showPosition('top-left')}>Top Left</button>
+                                <button className="btn btn-primary" onClick={() => showPosition('top-center')}>Top Center</button>
+                                <button className="btn btn-primary" onClick={() => showPosition('top-right')}>Top Right</button>
+                                <button className="btn btn-primary" onClick={() => showPosition('bottom-left')}>Bottom Left</button>
+                                <button className="btn btn-primary" onClick={() => showPosition('bottom-center')}>Bottom Center</button>
+                                <button className="btn btn-primary" onClick={() => showPosition('bottom-right')}>Bottom Right</button>
+                            </div>
+                        </div>
+
+                        {/* React Integration Features Section */}
+                        <div className="section">
+                            <h2>🔗 React Integration Features</h2>
+                            <ul className="feature-list">
+                                <li>React 18+ support with concurrent features</li>
+                                <li>Context API integration</li>
+                                <li>Custom hooks for easy usage</li>
+                                <li>TypeScript support with React types</li>
+                                <li>Provider pattern for global state</li>
+                                <li>React DevTools integration</li>
+                                <li>SSR (Server-Side Rendering) support</li>
+                                <li>React Router integration</li>
+                                <li>Redux/Context state management</li>
+                                <li>React Query integration</li>
+                            </ul>
+                        </div>
+
+                        {/* API Reference Section */}
+                        <div className="section">
+                            <h2>📚 React API Reference</h2>
+                            <h3>Provider Component</h3>
+                            <div className="code-block">
+{`// NotifioProvider props
+interface NotifioProviderProps {
+  children: React.ReactNode
+  position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right'
+  duration?: number
+  closable?: boolean
+}`}
+                            </div>
+
+                            <h3>Hook Usage</h3>
+                            <div className="code-block">
+{`// useNotifio hook
+const notifio = useNotifio()
+
+// All methods are available
+notifio.success('Success!')
+notifio.error('Error!')
+notifio.warning('Warning!')
+notifio.info('Info!')
+notifio.neutral('Neutral!')`}
+                            </div>
+
+                            <h3>TypeScript Support</h3>
+                            <div className="code-block">
+{`// TypeScript usage
+import { useNotifio, type NotificationOptions } from 'notifio/react'
+
+const notifio = useNotifio()
+
+const options: NotificationOptions = {
+  title: 'Success',
+  description: 'Operation completed',
+  duration: 5000,
+  position: 'top-right'
+}
+
+notifio.success('Message', options)`}
+                            </div>
+                        </div>
+
+                        {/* Features Section */}
+                        <div className="section">
+                            <h2>✨ Features</h2>
+                            <ul className="feature-list">
+                                <li>Universal compatibility (Vue, React, Vanilla JS)</li>
+                                <li>React 18+ with concurrent features</li>
+                                <li>Context API and custom hooks</li>
+                                <li>TypeScript support with React types</li>
+                                <li>Multiple notification types (success, error, warning, info, neutral)</li>
+                                <li>Three style variants (solid, light, outline)</li>
+                                <li>Six position options</li>
+                                <li>Customizable duration and auto-close</li>
+                                <li>Link buttons and custom actions</li>
+                                <li>Responsive design</li>
+                                <li>Accessibility support</li>
+                                <li>Modern design system integration</li>
+                                <li>React DevTools support</li>
+                                <li>SSR compatibility</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="footer">
+                        <p>Built with ❤️ using React 18 and modern web technologies</p>
+                        <p><a href="https://github.com/your-username/notifio" target="_blank">View on GitHub</a> | <a href="https://npmjs.com/package/notifio" target="_blank">NPM Package</a></p>
+                    </div>
+                </div>
+            );
+        };
+
+        const RootApp = () => {
+            return (
+                <NotifioProvider>
+                    <App />
+                    <NotificationContainer />
+                </NotifioProvider>
+            );
+        };
+
+        ReactDOM.render(<RootApp />, document.getElementById('root'));
+    </script>
+</body>
+</html>
