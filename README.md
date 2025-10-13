@@ -51,9 +51,15 @@ npm install notifio
             });
             
             // Style-based notifications
-            notifio.solid('success', 'Solid notification!');
-            notifio.light('warning', 'Light notification!');
-            notifio.outline('error', 'Outline notification!');
+            notifio.solid('success', 'Solid notification!', {
+                description: 'This is a solid style notification.'
+            });
+            notifio.light('warning', 'Light notification!', {
+                description: 'This is a light style notification.'
+            });
+            notifio.outline('error', 'Outline notification!', {
+                description: 'This is an outline style notification.'
+            });
         }
     </script>
 </body>
@@ -115,15 +121,21 @@ const showSuccess = () => {
 };
 
 const showSolid = () => {
-  notifio.solid('success', 'Solid notification!');
+  notifio.solid('success', 'Solid notification!', {
+    description: 'This is a solid style notification.'
+  });
 };
 
 const showLight = () => {
-  notifio.light('warning', 'Light notification!');
+  notifio.light('warning', 'Light notification!', {
+    description: 'This is a light style notification.'
+  });
 };
 
 const showOutline = () => {
-  notifio.outline('error', 'Outline notification!');
+  notifio.outline('error', 'Outline notification!', {
+    description: 'This is an outline style notification.'
+  });
 };
 </script>
 ```
@@ -158,15 +170,21 @@ function MyComponent() {
   };
 
   const handleSolid = () => {
-    notifio.solid('success', 'Solid notification!');
+    notifio.solid('success', 'Solid notification!', {
+      description: 'This is a solid style notification.'
+    });
   };
 
   const handleLight = () => {
-    notifio.light('warning', 'Light notification!');
+    notifio.light('warning', 'Light notification!', {
+      description: 'This is a light style notification.'
+    });
   };
 
   const handleOutline = () => {
-    notifio.outline('error', 'Outline notification!');
+    notifio.outline('error', 'Outline notification!', {
+      description: 'This is an outline style notification.'
+    });
   };
 
   return (

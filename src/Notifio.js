@@ -26,16 +26,16 @@ class Notifio {
   }
 
   // Style-specific methods
-  solid(type, message, options = {}) {
-    return this.manager.show({ ...options, type, message, style: 'solid' });
+  solid(type, title, options = {}) {
+    return this.manager.show({ ...options, type, title, message: '', style: 'solid' });
   }
 
-  light(type, message, options = {}) {
-    return this.manager.show({ ...options, type, message, style: 'light' });
+  light(type, title, options = {}) {
+    return this.manager.show({ ...options, type, title, message: '', style: 'light' });
   }
 
-  outline(type, message, options = {}) {
-    return this.manager.show({ ...options, type, message, style: 'outline' });
+  outline(type, title, options = {}) {
+    return this.manager.show({ ...options, type, title, message: '', style: 'outline' });
   }
 
   show(options) {
