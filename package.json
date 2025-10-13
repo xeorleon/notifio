@@ -1,6 +1,6 @@
 {
   "name": "notifio",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Universal notification system for Vue, React, and vanilla JavaScript",
   "main": "dist/index.js",
   "module": "dist/index.esm.mjs",
