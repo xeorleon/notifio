@@ -20,11 +20,46 @@ npm install notifio
 
 ## Quick Start
 
-### Vanilla JavaScript
+### CDN (Unpkg/JSDelivr)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notifio Example</title>
+</head>
+<body>
+    <button onclick="showNotification()">Show Notification</button>
+    
+    <!-- Unpkg CDN -->
+    <script src="https://unpkg.com/notifio@1.0.1/dist/notifio.umd.js"></script>
+    
+    <!-- Or JSDelivr CDN -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.1/dist/notifio.umd.js"></script> -->
+    
+    <script>
+        function showNotification() {
+            // Basic notifications
+            notifio.success('Operation completed!');
+            notifio.error('Something went wrong!');
+            notifio.warning('Please check your input');
+            notifio.info('New message received');
+            
+            // Style-based notifications
+            notifio.solid('success', 'Solid notification!');
+            notifio.light('warning', 'Light notification!');
+            notifio.outline('error', 'Outline notification!');
+        }
+    </script>
+</body>
+</html>
+```
+
+### Vanilla JavaScript (ES Modules)
 
 ```html
 <script type="module">
-  import notifio from 'notifio';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.1/dist/index.esm.js';
 
   // Show notifications
   notifio.success('Operation completed!');
@@ -39,7 +74,7 @@ npm install notifio
 ```javascript
 // main.js
 import { createApp } from 'vue';
-import NotifioPlugin from 'notifio/vue';
+import { NotifioPlugin } from 'notifio/vue';
 import App from './App.vue';
 
 const app = createApp(App);
@@ -52,6 +87,9 @@ app.mount('#app');
 <template>
   <div>
     <button @click="showSuccess">Show Success</button>
+    <button @click="showSolid">Show Solid</button>
+    <button @click="showLight">Show Light</button>
+    <button @click="showOutline">Show Outline</button>
   </div>
 </template>
 
@@ -62,6 +100,18 @@ const notifio = useNotifio();
 
 const showSuccess = () => {
   notifio.success('Operation completed!');
+};
+
+const showSolid = () => {
+  notifio.solid('success', 'Solid notification!');
+};
+
+const showLight = () => {
+  notifio.light('warning', 'Light notification!');
+};
+
+const showOutline = () => {
+  notifio.outline('error', 'Outline notification!');
 };
 </script>
 ```
@@ -93,7 +143,26 @@ function MyComponent() {
     notifio.success('Operation completed!');
   };
 
-  return <button onClick={handleSuccess}>Show Success</button>;
+  const handleSolid = () => {
+    notifio.solid('success', 'Solid notification!');
+  };
+
+  const handleLight = () => {
+    notifio.light('warning', 'Light notification!');
+  };
+
+  const handleOutline = () => {
+    notifio.outline('error', 'Outline notification!');
+  };
+
+  return (
+    <div>
+      <button onClick={handleSuccess}>Show Success</button>
+      <button onClick={handleSolid}>Show Solid</button>
+      <button onClick={handleLight}>Show Light</button>
+      <button onClick={handleOutline}>Show Outline</button>
+    </div>
+  );
 }
 ```
 
@@ -273,6 +342,30 @@ npm test
 
 # Type checking
 npm run type-check
+```
+
+## CDN Links
+
+### Unpkg
+```html
+<!-- UMD Bundle -->
+<script src="https://unpkg.com/notifio@1.0.1/dist/notifio.umd.js"></script>
+
+<!-- ES Module -->
+<script type="module">
+  import { notifio } from 'https://unpkg.com/notifio@1.0.1/dist/index.esm.js';
+</script>
+```
+
+### JSDelivr
+```html
+<!-- UMD Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.1/dist/notifio.umd.js"></script>
+
+<!-- ES Module -->
+<script type="module">
+  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.1/dist/index.esm.js';
+</script>
 ```
 
 ## License
