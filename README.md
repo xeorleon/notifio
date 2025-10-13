@@ -39,11 +39,16 @@ npm install notifio
     
     <script>
         function showNotification() {
-            // Basic notifications
+            // Basic notifications (title only)
             notifio.success('Operation completed!');
             notifio.error('Something went wrong!');
             notifio.warning('Please check your input');
             notifio.info('New message received');
+            
+            // With description
+            notifio.success('Operation completed!', {
+                description: 'Your changes have been saved successfully.'
+            });
             
             // Style-based notifications
             notifio.solid('success', 'Solid notification!');
@@ -61,11 +66,16 @@ npm install notifio
 <script type="module">
   import { notifio } from 'https://unpkg.com/notifio@1.0.9/dist/index.esm.js';
 
-  // Show notifications
+  // Show notifications (title only)
   notifio.success('Operation completed!');
   notifio.error('Something went wrong!');
   notifio.warning('Please check your input');
   notifio.info('New message received');
+  
+  // With description
+  notifio.success('Operation completed!', {
+    description: 'Your changes have been saved successfully.'
+  });
 </script>
 ```
 
@@ -99,7 +109,9 @@ import { useNotifio } from 'notifio/vue';
 const notifio = useNotifio();
 
 const showSuccess = () => {
-  notifio.success('Operation completed!');
+  notifio.success('Operation completed!', {
+    description: 'Your changes have been saved successfully.'
+  });
 };
 
 const showSolid = () => {
@@ -140,7 +152,9 @@ function MyComponent() {
   const notifio = useNotifio();
 
   const handleSuccess = () => {
-    notifio.success('Operation completed!');
+    notifio.success('Operation completed!', {
+      description: 'Your changes have been saved successfully.'
+    });
   };
 
   const handleSolid = () => {
@@ -236,30 +250,36 @@ interface NotifioConfig {
 ### Basic Usage
 
 ```javascript
-// Simple notifications
+// Simple notifications (title only)
 notifio.success('User created successfully!');
 notifio.error('Failed to save data');
 notifio.warning('Please check your input');
 notifio.info('New message received');
+
+// With description
+notifio.success('User created successfully!', {
+  description: 'The new user has been added to the system.'
+});
 ```
 
 ### Advanced Usage
 
 ```javascript
-// With title and custom duration
+// With custom duration
 notifio.success('Profile updated!', {
-  title: 'Success',
+  description: 'Your profile information has been updated.',
   duration: 3000
 });
 
 // With custom icon
 notifio.info('Custom notification', {
   customIcon: '🎉',
-  title: 'Celebration'
+  description: 'This is a celebration notification!'
 });
 
 // Clickable notification
 notifio.info('Click to view details', {
+  description: 'Click anywhere on this notification to open details.',
   onClick: () => {
     window.open('/details');
   }
@@ -267,13 +287,13 @@ notifio.info('Click to view details', {
 
 // Persistent notification
 notifio.warning('Important message', {
+  description: 'This is an important message that requires your attention.',
   duration: 0,
   closable: true
 });
 
-// With title and description
+// With description
 notifio.info('New update available', {
-  title: 'Update Available',
   description: 'A new version of the app is ready to install.',
   linkButton: {
     text: 'Install Now',
@@ -288,12 +308,30 @@ notifio.info('New update available', {
 
 ```javascript
 // Different positions
-notifio.info('Top left', { position: 'top-left' });
-notifio.info('Top center', { position: 'top-center' });
-notifio.info('Top right', { position: 'top-right' });
-notifio.info('Bottom left', { position: 'bottom-left' });
-notifio.info('Bottom center', { position: 'bottom-center' });
-notifio.info('Bottom right', { position: 'bottom-right' });
+notifio.info('Top left', { 
+  description: 'This notification appears at the top left corner.',
+  position: 'top-left' 
+});
+notifio.info('Top center', { 
+  description: 'This notification appears at the top center.',
+  position: 'top-center' 
+});
+notifio.info('Top right', { 
+  description: 'This notification appears at the top right corner.',
+  position: 'top-right' 
+});
+notifio.info('Bottom left', { 
+  description: 'This notification appears at the bottom left corner.',
+  position: 'bottom-left' 
+});
+notifio.info('Bottom center', { 
+  description: 'This notification appears at the bottom center.',
+  position: 'bottom-center' 
+});
+notifio.info('Bottom right', { 
+  description: 'This notification appears at the bottom right corner.',
+  position: 'bottom-right' 
+});
 ```
 
 ### Configuration

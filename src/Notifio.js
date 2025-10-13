@@ -5,24 +5,24 @@ class Notifio {
     this.manager = new NotificationManager(config);
   }
 
-  success(message, options = {}) {
-    return this.manager.show({ ...options, type: 'success', message });
+  success(title, options = {}) {
+    return this.manager.show({ ...options, type: 'success', title, message: '' });
   }
 
-  error(message, options = {}) {
-    return this.manager.show({ ...options, type: 'error', message });
+  error(title, options = {}) {
+    return this.manager.show({ ...options, type: 'error', title, message: '' });
   }
 
-  warning(message, options = {}) {
-    return this.manager.show({ ...options, type: 'warning', message });
+  warning(title, options = {}) {
+    return this.manager.show({ ...options, type: 'warning', title, message: '' });
   }
 
-  info(message, options = {}) {
-    return this.manager.show({ ...options, type: 'info', message });
+  info(title, options = {}) {
+    return this.manager.show({ ...options, type: 'info', title, message: '' });
   }
 
-  neutral(message, options = {}) {
-    return this.manager.show({ ...options, type: 'neutral', message });
+  neutral(title, options = {}) {
+    return this.manager.show({ ...options, type: 'neutral', title, message: '' });
   }
 
   // Style-specific methods
