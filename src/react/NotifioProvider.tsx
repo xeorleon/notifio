@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import Notifio from '../Notifio';
-import { NotifioConfig, NotificationInstance } from '../types';
+import { NotifioConfig, NotificationInstance } from './types';
 
 interface NotifioContextType {
   notifio: Notifio;

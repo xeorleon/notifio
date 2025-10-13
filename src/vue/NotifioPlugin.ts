@@ -1,5 +1,5 @@
 import type { App } from 'vue';
-import type { NotifioConfig } from '../types';
+import type { NotifioConfig } from './types';
 import Notifio from '../Notifio';
 
 export interface NotifioPluginOptions extends NotifioConfig {
