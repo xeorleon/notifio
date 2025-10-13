@@ -60,6 +60,15 @@ npm install notifio
             notifio.outline('error', 'Outline notification!', {
                 description: 'This is an outline style notification.'
             });
+            
+            // With link button
+            notifio.solid('neutral', 'Insert your alert title here!', {
+                description: 'Duplicate outline group arrange ipsum comment figjam export content.',
+                linkButton: {
+                    text: 'Link Button',
+                    onClick: () => alert('Solid Neutral Link clicked!')
+                }
+            });
         }
     </script>
 </body>
@@ -81,6 +90,15 @@ npm install notifio
   // With description
   notifio.success('Operation completed!', {
     description: 'Your changes have been saved successfully.'
+  });
+  
+  // With link button
+  notifio.solid('neutral', 'Insert your alert title here!', {
+    description: 'Duplicate outline group arrange ipsum comment figjam export content.',
+    linkButton: {
+      text: 'Link Button',
+      onClick: () => alert('Solid Neutral Link clicked!')
+    }
   });
 </script>
 ```
@@ -137,6 +155,16 @@ const showOutline = () => {
     description: 'This is an outline style notification.'
   });
 };
+
+const showWithLinkButton = () => {
+  notifio.solid('neutral', 'Insert your alert title here!', {
+    description: 'Duplicate outline group arrange ipsum comment figjam export content.',
+    linkButton: {
+      text: 'Link Button',
+      onClick: () => alert('Solid Neutral Link clicked!')
+    }
+  });
+};
 </script>
 ```
 
@@ -184,6 +212,16 @@ function MyComponent() {
   const handleOutline = () => {
     notifio.outline('error', 'Outline notification!', {
       description: 'This is an outline style notification.'
+    });
+  };
+
+  const handleWithLinkButton = () => {
+    notifio.solid('neutral', 'Insert your alert title here!', {
+      description: 'Duplicate outline group arrange ipsum comment figjam export content.',
+      linkButton: {
+        text: 'Link Button',
+        onClick: () => alert('Solid Neutral Link clicked!')
+      }
     });
   };
 
@@ -314,14 +352,12 @@ notifio.warning('Important message', {
   closable: true
 });
 
-// With description
-notifio.info('New update available', {
-  description: 'A new version of the app is ready to install.',
+// With link button
+notifio.solid('neutral', 'Insert your alert title here!', {
+  description: 'Duplicate outline group arrange ipsum comment figjam export content.',
   linkButton: {
-    text: 'Install Now',
-    onClick: () => {
-      console.log('Installing update...');
-    }
+    text: 'Link Button',
+    onClick: () => alert('Solid Neutral Link clicked!')
   }
 });
 ```
