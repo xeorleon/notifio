@@ -32,10 +32,10 @@ npm install notifio
     <button onclick="showNotification()">Show Notification</button>
     
     <!-- Unpkg CDN -->
-    <script src="https://unpkg.com/notifio@1.0.9/dist/notifio.umd.js"></script>
+    <script src="https://unpkg.com/notifio@1.0.13/dist/notifio.umd.js"></script>
     
     <!-- Or JSDelivr CDN -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.9/dist/notifio.umd.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.13/dist/notifio.umd.js"></script> -->
     
     <script>
         function showNotification() {
@@ -70,7 +70,7 @@ npm install notifio
 
 ```html
 <script type="module">
-  import { notifio } from 'https://unpkg.com/notifio@1.0.9/dist/index.esm.js';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.13/dist/index.esm.js';
 
   // Show notifications (title only)
   notifio.success('Operation completed!');
@@ -202,33 +202,37 @@ function MyComponent() {
 
 ### Notification Types
 
-- `success(message, options?)` - Green success notification
-- `error(message, options?)` - Red error notification
-- `warning(message, options?)` - Orange warning notification
-- `info(message, options?)` - Blue info notification
-- `neutral(message, options?)` - Gray neutral notification
+- `success(title, options?)` - Green success notification
+- `error(title, options?)` - Red error notification
+- `warning(title, options?)` - Orange warning notification
+- `info(title, options?)` - Blue info notification
+- `neutral(title, options?)` - Gray neutral notification
 
 ### Notification Styles
 
-- `solid(type, message, options?)` - Solid background style
-- `light(type, message, options?)` - Light background style
-- `outline(type, message, options?)` - Outline border style
+- `solid(type, title, options?)` - Solid background style
+- `light(type, title, options?)` - Light background style
+- `outline(type, title, options?)` - Outline border style
+
+### General Methods
+
+- `show(options)` - Show notification with full options
+- `close(id)` - Close specific notification
+- `closeAll()` - Close all notifications
 
 ### Options
 
 ```typescript
 interface NotificationOptions {
   id?: string;                    // Custom ID
-  type?: 'success' | 'error' | 'warning' | 'info';
-  title?: string;                 // Notification title
-  message: string;                // Notification message
+  type?: 'success' | 'error' | 'warning' | 'info' | 'neutral';
+  title?: string;                 // Notification title (optional for show method)
+  description?: string;           // Notification description
   duration?: number;              // Auto-close duration (0 = persistent)
   position?: NotificationPosition; // Position on screen
   closable?: boolean;             // Show close button
   showIcon?: boolean;             // Show type icon
   customIcon?: string;            // Custom icon (emoji/HTML)
-  title?: string;                 // Notification title
-  description?: string;           // Notification description
   linkButton?: {                  // Link button
     text: string;
     onClick?: () => void;
@@ -405,22 +409,22 @@ npm run type-check
 ### Unpkg
 ```html
 <!-- UMD Bundle -->
-<script src="https://unpkg.com/notifio@1.0.9/dist/notifio.umd.js"></script>
+<script src="https://unpkg.com/notifio@1.0.13/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://unpkg.com/notifio@1.0.9/dist/index.esm.js';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.13/dist/index.esm.js';
 </script>
 ```
 
 ### JSDelivr
 ```html
 <!-- UMD Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.9/dist/notifio.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.13/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.9/dist/index.esm.js';
+  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.13/dist/index.esm.js';
 </script>
 ```
 
