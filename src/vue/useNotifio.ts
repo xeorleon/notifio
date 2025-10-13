@@ -1,5 +1,5 @@
 import { inject } from 'vue';
-import Notifio from '../Notifio';
+import type Notifio from '../Notifio';
 
 export function useNotifio(): Notifio {
   const notifio = inject<Notifio>('notifio');
