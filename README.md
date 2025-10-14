@@ -1,5 +1,8 @@
 # Notifio
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/xeorleon/notifio)
+[![NPM](https://img.shields.io/npm/v/notifio?color=green&logo=npm)](https://www.npmjs.com/package/notifio)
+
 A universal notification system that works with Vue, React, and vanilla JavaScript. Built with TypeScript for type safety and modern web development.
 
 ## Features
@@ -32,10 +35,10 @@ npm install notifio
     <button onclick="showNotification()">Show Notification</button>
     
     <!-- Unpkg CDN -->
-    <script src="https://unpkg.com/notifio@1.0.16/dist/notifio.umd.js"></script>
+    <script src="https://unpkg.com/notifio@1.0.19/dist/notifio.umd.js"></script>
     
     <!-- Or JSDelivr CDN -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.16/dist/notifio.umd.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.19/dist/notifio.umd.js"></script> -->
     
     <script>
         function showNotification() {
@@ -79,7 +82,7 @@ npm install notifio
 
 ```html
 <script type="module">
-  import { notifio } from 'https://unpkg.com/notifio@1.0.16/dist/index.esm.js';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.19/dist/index.esm.js';
 
   // Show notifications (title only)
   notifio.success('Operation completed!');
@@ -445,22 +448,22 @@ npm run type-check
 ### Unpkg
 ```html
 <!-- UMD Bundle -->
-<script src="https://unpkg.com/notifio@1.0.16/dist/notifio.umd.js"></script>
+<script src="https://unpkg.com/notifio@1.0.19/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://unpkg.com/notifio@1.0.16/dist/index.esm.js';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.19/dist/index.esm.js';
 </script>
 ```
 
 ### JSDelivr
 ```html
 <!-- UMD Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.16/dist/notifio.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.19/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.16/dist/index.esm.js';
+  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.19/dist/index.esm.js';
 </script>
 ```
 
