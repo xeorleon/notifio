@@ -58,3 +58,13 @@ export interface NotifioConfig {
   className?: string;
   style?: React.CSSProperties;
 }
+
+export interface NotifioProviderProps {
+  children: React.ReactNode;
+  config?: NotifioConfig;
+}
+
+export interface NotifioContextType {
+  notifio: any; // Will be properly typed when we import Notifio
+  notifications: NotificationInstance[];
+}
