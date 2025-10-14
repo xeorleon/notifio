@@ -12,7 +12,6 @@ export interface NotificationOptions {
   id?: string;
   type?: NotificationType;
   title?: string;
-  message: string;
   description?: string;
   linkButton?: {
     text: string;
@@ -33,7 +32,6 @@ export interface NotificationInstance {
   id: string;
   type: NotificationType;
   title?: string;
-  message: string;
   description?: string;
   linkButton?: {
     text: string;
