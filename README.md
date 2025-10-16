@@ -15,7 +15,7 @@ A universal notification system that works with Vue, React, and vanilla JavaScri
 - 🎯 **Flexible**: Multiple notification types and positions
 - 🎪 **Interactive**: Click handlers and custom icons
 
-## Demo Page
+# [Github Demo Page](https://xeorleon.github.io/notifio/)
 
 ## Installation
 
@@ -37,10 +37,10 @@ npm install notifio
     <button onclick="showNotification()">Show Notification</button>
     
     <!-- Unpkg CDN -->
-    <script src="https://unpkg.com/notifio@1.0.19/dist/notifio.umd.js"></script>
+    <script src="https://unpkg.com/notifio@1.0.20/dist/notifio.umd.js"></script>
     
     <!-- Or JSDelivr CDN -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.19/dist/notifio.umd.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/notifio@1.0.20/dist/notifio.umd.js"></script> -->
     
     <script>
         function showNotification() {
@@ -450,22 +450,22 @@ npm run type-check
 ### Unpkg
 ```html
 <!-- UMD Bundle -->
-<script src="https://unpkg.com/notifio@1.0.19/dist/notifio.umd.js"></script>
+<script src="https://unpkg.com/notifio@1.0.20/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://unpkg.com/notifio@1.0.19/dist/index.esm.js';
+  import { notifio } from 'https://unpkg.com/notifio@1.0.20/dist/index.esm.js';
 </script>
 ```
 
 ### JSDelivr
 ```html
 <!-- UMD Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.19/dist/notifio.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/notifio@1.0.20/dist/notifio.umd.js"></script>
 
 <!-- ES Module -->
 <script type="module">
-  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.19/dist/index.esm.js';
+  import { notifio } from 'https://cdn.jsdelivr.net/npm/notifio@1.0.20/dist/index.esm.js';
 </script>
 ```
 
