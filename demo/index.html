@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -217,6 +218,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -229,11 +231,11 @@
             <div class="section">
                 <h2>📦 Installation</h2>
                 <div class="code-block">
-# NPM
-npm install notifio
+                    # NPM
+                    npm install notifio
 
-# CDN
-&lt;script src="https://unpkg.com/notifio/dist/index.js"&gt;&lt;/script&gt;
+                    # CDN
+                    &lt;script src="https://unpkg.com/notifio/dist/index.js"&gt;&lt;/script&gt;
                 </div>
             </div>
 
@@ -242,71 +244,71 @@ npm install notifio
                 <h2>🚀 Basic Usage</h2>
                 <h3>Import & Initialize</h3>
                 <div class="code-block">
-// ES6 Modules
-import { notifio } from 'notifio';
+                    // ES6 Modules
+                    import { notifio } from 'notifio';
 
-// CommonJS
-const { notifio } = require('notifio');
+                    // CommonJS
+                    const { notifio } = require('notifio');
 
-// CDN
-const { notifio } = window.Notifio;
+                    // CDN
+                    const { notifio } = window.Notifio;
                 </div>
 
                 <h3>Vue 3 Usage</h3>
                 <div class="code-block">
-// main.js
-import { createApp } from 'vue';
-import NotifioPlugin from 'notifio/vue';
-import App from './App.vue';
+                    // main.js
+                    import { createApp } from 'vue';
+                    import NotifioPlugin from 'notifio/vue';
+                    import App from './App.vue';
 
-const app = createApp(App);
-app.use(NotifioPlugin);
-app.mount('#app');
+                    const app = createApp(App);
+                    app.use(NotifioPlugin);
+                    app.mount('#app');
 
-// Component.vue
-&lt;template&gt;
-  &lt;div&gt;
-    &lt;button @click="showSuccess"&gt;Show Success&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+                    // Component.vue
+                    &lt;template&gt;
+                    &lt;div&gt;
+                    &lt;button @click="showSuccess"&gt;Show Success&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;/template&gt;
 
-&lt;script setup&gt;
-import { useNotifio } from 'notifio/vue';
+                    &lt;script setup&gt;
+                    import { useNotifio } from 'notifio/vue';
 
-const notifio = useNotifio();
+                    const notifio = useNotifio();
 
-const showSuccess = () => {
-  notifio.success('Operation completed!');
-};
-&lt;/script&gt;
+                    const showSuccess = () => {
+                    notifio.success('Operation completed!');
+                    };
+                    &lt;/script&gt;
                 </div>
 
                 <h3>React Usage</h3>
                 <div class="code-block">
-// App.jsx
-import { NotifioProvider } from 'notifio/react';
-import MyComponent from './MyComponent';
+                    // App.jsx
+                    import { NotifioProvider } from 'notifio/react';
+                    import MyComponent from './MyComponent';
 
-function App() {
-  return (
-    &lt;NotifioProvider&gt;
-      &lt;MyComponent /&gt;
-    &lt;/NotifioProvider&gt;
-  );
-}
+                    function App() {
+                    return (
+                    &lt;NotifioProvider&gt;
+                    &lt;MyComponent /&gt;
+                    &lt;/NotifioProvider&gt;
+                    );
+                    }
 
-// MyComponent.jsx
-import { useNotifio } from 'notifio/react';
+                    // MyComponent.jsx
+                    import { useNotifio } from 'notifio/react';
 
-function MyComponent() {
-  const notifio = useNotifio();
+                    function MyComponent() {
+                    const notifio = useNotifio();
 
-  const handleSuccess = () => {
-    notifio.success('Operation completed!');
-  };
+                    const handleSuccess = () => {
+                    notifio.success('Operation completed!');
+                    };
 
-  return &lt;button onClick={handleSuccess}&gt;Show Success&lt;/button&gt;;
-}
+                    return &lt;button onClick={handleSuccess}&gt;Show Success&lt;/button&gt;;
+                    }
                 </div>
 
                 <h3>All Types - Solid Style</h3>
@@ -336,12 +338,12 @@ function MyComponent() {
                     <button class="btn btn-outline" onclick="showOutlineNeutral()">Outline Neutral</button>
                 </div>
                 <div class="code-block">
-// Basic usage
-notifio.success('Operation completed successfully!');
-notifio.error('Something went wrong!');
-notifio.warning('Please check your input');
-notifio.info('New feature available');
-notifio.neutral('System maintenance scheduled');
+                    // Basic usage
+                    notifio.success('Operation completed successfully!');
+                    notifio.error('Something went wrong!');
+                    notifio.warning('Please check your input');
+                    notifio.info('New feature available');
+                    notifio.neutral('System maintenance scheduled');
                 </div>
             </div>
 
@@ -368,23 +370,26 @@ notifio.neutral('System maintenance scheduled');
 
                 <h3>Outline Style - Complete Examples</h3>
                 <div class="button-grid">
-                    <button class="btn btn-outline" onclick="showOutlineCompleteSuccess()">Outline Success Complete</button>
+                    <button class="btn btn-outline" onclick="showOutlineCompleteSuccess()">Outline Success
+                        Complete</button>
                     <button class="btn btn-outline" onclick="showOutlineCompleteError()">Outline Error Complete</button>
-                    <button class="btn btn-outline" onclick="showOutlineCompleteWarning()">Outline Warning Complete</button>
+                    <button class="btn btn-outline" onclick="showOutlineCompleteWarning()">Outline Warning
+                        Complete</button>
                     <button class="btn btn-outline" onclick="showOutlineCompleteInfo()">Outline Info Complete</button>
-                    <button class="btn btn-outline" onclick="showOutlineCompleteNeutral()">Outline Neutral Complete</button>
+                    <button class="btn btn-outline" onclick="showOutlineCompleteNeutral()">Outline Neutral
+                        Complete</button>
                 </div>
 
                 <div class="code-block">
-// Style variants
-notifio.solid('success', 'Solid notification');
-notifio.light('error', 'Light notification');
-notifio.outline('warning', 'Outline notification');
+                    // Style variants
+                    notifio.solid('success', 'Solid notification');
+                    notifio.light('error', 'Light notification');
+                    notifio.outline('warning', 'Outline notification');
 
-// Or with options
-notifio.success('Message', { style: 'solid' });
-notifio.error('Message', { style: 'light' });
-notifio.warning('Message', { style: 'outline' });
+                    // Or with options
+                    notifio.success('Title', { style: 'solid' });
+                    notifio.error('Title', { style: 'light' });
+                    notifio.warning('Title', { style: 'outline' });
                 </div>
             </div>
 
@@ -402,7 +407,7 @@ notifio.warning('Message', { style: 'outline' });
                 <div class="button-grid">
                     <button class="btn btn-primary" onclick="showWithLink()">With Link</button>
                     <button class="btn btn-success" onclick="showWithAction()">With Action</button>
-                    <button class="btn btn-warning" onclick="showUnderlineLink()">Alt Çizgili Link</button>
+                    <button class="btn btn-warning" onclick="showUnderlineLink()">Underline Link</button>
                 </div>
 
                 <h3>Custom Duration & Position</h3>
@@ -414,19 +419,19 @@ notifio.warning('Message', { style: 'outline' });
                 </div>
 
                 <div class="code-block">
-// Advanced options
-notifio.success('Success!', {
-  title: 'Operation Complete',
-  description: 'Your data has been saved successfully.',
-  duration: 5000,
-  position: 'top-right',
-  closable: true,
-  linkButton: {
-    text: 'View Details',
-    url: '#',
-    onClick: () => console.log('Link clicked!')
-  }
-});
+                    // Advanced options
+                    notifio.success('Success!', {
+                    title: 'Operation Complete',
+                    description: 'Your data has been saved successfully.',
+                    duration: 5000,
+                    position: 'top-right',
+                    closable: true,
+                    linkButton: {
+                    text: 'View Details',
+                    url: '#',
+                    onClick: () => console.log('Link clicked!')
+                    }
+                    });
                 </div>
             </div>
 
@@ -459,42 +464,42 @@ notifio.success('Success!', {
                         <tr>
                             <td><code>notifio.success()</code></td>
                             <td>Show success notification</td>
-                            <td>message, options</td>
+                            <td>title, options</td>
                         </tr>
                         <tr>
                             <td><code>notifio.error()</code></td>
                             <td>Show error notification</td>
-                            <td>message, options</td>
+                            <td>title, options</td>
                         </tr>
                         <tr>
                             <td><code>notifio.warning()</code></td>
                             <td>Show warning notification</td>
-                            <td>message, options</td>
+                            <td>title, options</td>
                         </tr>
                         <tr>
                             <td><code>notifio.info()</code></td>
                             <td>Show info notification</td>
-                            <td>message, options</td>
+                            <td>title, options</td>
                         </tr>
                         <tr>
                             <td><code>notifio.neutral()</code></td>
                             <td>Show neutral notification</td>
-                            <td>message, options</td>
+                            <td>title, options</td>
                         </tr>
                         <tr>
                             <td><code>notifio.solid()</code></td>
                             <td>Show solid style notification</td>
-                            <td>type, message, options</td>
+                            <td>type, title, options</td>
                         </tr>
                         <tr>
                             <td><code>notifio.light()</code></td>
                             <td>Show light style notification</td>
-                            <td>type, message, options</td>
+                            <td>type, title, options</td>
                         </tr>
                         <tr>
                             <td><code>notifio.outline()</code></td>
                             <td>Show outline style notification</td>
-                            <td>type, message, options</td>
+                            <td>type, title, options</td>
                         </tr>
                     </tbody>
                 </table>
@@ -576,15 +581,15 @@ notifio.success('Success!', {
 
         <div class="footer">
             <p>Built with ❤️ using modern web technologies</p>
-            <p><a href="https://github.com/your-username/notifio" target="_blank">View on GitHub</a> | <a href="https://npmjs.com/package/notifio" target="_blank">NPM Package</a></p>
+            <p><a href="https://github.com/xeorleon/notifio" target="_blank">View on GitHub</a> | <a
+                    href="https://npmjs.com/package/notifio" target="_blank">NPM Package</a></p>
         </div>
     </div>
-
-    <script type="module">
+    <script src="https://unpkg.com/notifio@1.0.19/dist/notifio.umd.js"></script>
+    <script>
         try {
-            const { notifio } = await import('../dist/index.esm.mjs');
             console.log('Notifio imported successfully:', notifio);
-            
+
             // Make notifio available globally for demo buttons
             window.notifio = notifio;
         } catch (error) {
@@ -1016,12 +1021,12 @@ notifio.success('Success!', {
         };
 
         window.showUnderlineLink = () => {
-            notifio.info('Alt çizgili link button örneği', {
-                title: 'Link Button Demo',
-                description: 'Bu link button alt çizgili ve icon\'lu olarak tasarlandı.',
+            notifio.info('Underline Link Button Demo', {
+                title: 'Underline Link Button Demo',
+                description: 'This link button is designed with an underline and an icon.',
                 linkButton: {
-                    text: 'Detayları Gör',
-                    onClick: () => alert('Alt çizgili link tıklandı!')
+                    text: 'View Details',
+                    onClick: () => alert('Underline link clicked!')
                 }
             });
         };
@@ -1073,4 +1078,5 @@ notifio.success('Success!', {
         }, 1000);
     </script>
 </body>
+
 </html>

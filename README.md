@@ -15,6 +15,8 @@ A universal notification system that works with Vue, React, and vanilla JavaScri
 - 🎯 **Flexible**: Multiple notification types and positions
 - 🎪 **Interactive**: Click handlers and custom icons
 
+## Demo Page
+
 ## Installation
 
 ```bash
